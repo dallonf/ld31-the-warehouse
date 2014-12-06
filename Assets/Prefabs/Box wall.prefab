@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Box wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ GameObject:
   - 4: {fileID: 400002}
   - 212: {fileID: 21200000}
   - 61: {fileID: 6100002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: box-plain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - 4: {fileID: 400004}
   - 212: {fileID: 21200002}
   - 61: {fileID: 6100004}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: box-plain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - 4: {fileID: 400006}
   - 212: {fileID: 21200004}
   - 61: {fileID: 6100006}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: box-plain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - 4: {fileID: 400008}
   - 212: {fileID: 21200006}
   - 61: {fileID: 6100008}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: box-plain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - 4: {fileID: 400010}
   - 212: {fileID: 21200008}
   - 61: {fileID: 6100000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: box-plain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
