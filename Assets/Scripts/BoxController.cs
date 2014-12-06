@@ -5,12 +5,6 @@ public class BoxController : MonoBehaviour
 {
     public bool IsTargetBox = true;
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
     public void OnCollisionEnter2D(Collision2D coll)
     {
         var player = coll.gameObject.GetComponent<PlayerController>();

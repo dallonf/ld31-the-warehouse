@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     public float Speed = 3.5f;
     public bool IsCarryingBox;
     public Renderer BoxArmsRenderer;
+    public Renderer IdleArmsRenderer;
 
     private Rigidbody2D rigidbody2d;
 
@@ -40,5 +41,6 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         BoxArmsRenderer.enabled = IsCarryingBox;
+        IdleArmsRenderer.enabled = !IsCarryingBox;
     }
 }
