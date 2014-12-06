@@ -3,8 +3,9 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-
     public float Speed = 3.5f;
+    public bool IsCarryingBox;
+    public Renderer BoxArmsRenderer;
 
     private Rigidbody2D rigidbody2d;
 
@@ -34,5 +35,10 @@ public class PlayerController : MonoBehaviour
         {
             transform.rotation = Quaternion.AngleAxis(Mathf.Rad2Deg*Mathf.Atan2(moveVector.y, moveVector.x) - 90, Vector3.forward);
         }
+    }
+
+    void FixedUpdate()
+    {
+        BoxArmsRenderer.enabled = IsCarryingBox;
     }
 }
