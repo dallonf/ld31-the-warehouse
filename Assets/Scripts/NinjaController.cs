@@ -9,7 +9,6 @@ public class NinjaController : MonoBehaviour
     public float ThinkTime = 0.2f;
 
     private Seeker seeker;
-    private Rigidbody2D rigidbody2d;
 
     private int currentWaypoint = 0;
     private Path currentPath;
@@ -17,7 +16,6 @@ public class NinjaController : MonoBehaviour
     public void Awake()
     {
         seeker = GetComponent<Seeker>();
-        rigidbody2d = GetComponent<Rigidbody2D>();
     }
 
     public void Start()
@@ -72,4 +70,15 @@ public class NinjaController : MonoBehaviour
         currentPath = path;
         currentWaypoint = 0;
     }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        var player = other.GetComponent<PlayerController>();
+        if (player)
+        {
+            GameController.Instance.GameOver();
+        }
+    }
+
+
 }

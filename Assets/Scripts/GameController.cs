@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour
     public PlayerController Player;
     public GameObject TitleScreen;
     public GameObject VictoryScreen;
+    public GameObject DeathScreen;
     public Light Light;
     
     [Header("Dynamic")]
@@ -67,10 +68,10 @@ public class GameController : MonoBehaviour
         UninitializeState(GameState.Switches);
         UninitializeState(GameState.Dead);
         UninitializeState(GameState.Victory);
-        //foreach (var ninja in Ninjas)
-        //{
-        //    ninja.SetActive(false);
-        //}
+        foreach (var ninja in Ninjas)
+        {
+            ninja.SetActive(false);
+        }
         GoToState(CurrentState); // Might have to move this to Start
     }
     
@@ -100,6 +101,7 @@ public class GameController : MonoBehaviour
             case GameState.Switches:
                 break;
             case GameState.Dead:
+                DeathScreen.SetActive(false);
                 break;
             case GameState.Victory:
                 VictoryScreen.SetActive(false);
@@ -125,6 +127,7 @@ public class GameController : MonoBehaviour
             case GameState.Switches:
                 break;
             case GameState.Dead:
+                DeathScreen.SetActive(true);
                 break;
             case GameState.Victory:
                 VictoryScreen.SetActive(true);
@@ -173,6 +176,7 @@ public class GameController : MonoBehaviour
 
     private IEnumerator ShowFirstNinja()
     {
+        yield return new WaitForSeconds(1.5f); // Let the process process that they just picked something up
         LightsOn = false;
         yield return new WaitForFixedUpdate();
         yield return new WaitForFixedUpdate();
@@ -193,5 +197,10 @@ public class GameController : MonoBehaviour
             LightsOn = false;
             yield return new WaitForSeconds(FlickeringConfig.LightsOutTime);
         }
+    }
+
+    public void GameOver()
+    {
+        GoToState(GameState.Dead);
     }
 }
