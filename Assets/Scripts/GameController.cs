@@ -12,11 +12,20 @@ public enum GameState
     Victory
 }
 
+[System.Serializable]
+public class FlickeringConfig
+{
+    public float LightsOutTime = 0.1f;
+    public float MinLightsOnTime = 0.5f;
+    public float MaxLightsOnTime = 1.2f;
+}
+
 public class GameController : MonoBehaviour
 {
     [Header("Configuration")]
     public BoxController[] BoxSequence;
     public GameObject[] Ninjas;
+    public FlickeringConfig FlickeringConfig;
 
     [Header("References")]
     public PlayerController Player;
@@ -37,6 +46,15 @@ public class GameController : MonoBehaviour
             return CurrentState != GameState.TitleScreen && CurrentState != GameState.Dead && CurrentState != GameState.Victory;
         }
     } 
+
+    public bool AreNinjasAttacking 
+    { 
+        get 
+        {
+            return CurrentState == GameState.Flickering || CurrentState == GameState.Switches;
+        }
+    } 
+
 
     public static GameController Instance {get; private set;}
 
@@ -77,6 +95,7 @@ public class GameController : MonoBehaviour
             case GameState.Tutorial:
                 break;
             case GameState.Flickering:
+                LightsOn = true;
                 break;
             case GameState.Switches:
                 break;
@@ -101,6 +120,7 @@ public class GameController : MonoBehaviour
             case GameState.Tutorial:
                 break;
             case GameState.Flickering:
+                StartCoroutine(FlickeringLights());
                 break;
             case GameState.Switches:
                 break;
@@ -124,6 +144,12 @@ public class GameController : MonoBehaviour
         {
             GoToState(GameState.Victory);
             CurrentBox = null;
+            return;
+        }
+
+        if (BoxesDelivered >= 1 && CurrentState == GameState.Tutorial)
+        {
+            GoToState(GameState.Flickering);
         }
     }
 
@@ -145,11 +171,27 @@ public class GameController : MonoBehaviour
         Application.LoadLevel(Application.loadedLevel);
     }
 
-    public IEnumerator ShowFirstNinja()
+    private IEnumerator ShowFirstNinja()
     {
         LightsOn = false;
+        yield return new WaitForFixedUpdate();
+        yield return new WaitForFixedUpdate();
         Ninjas[0].SetActive(true);
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         LightsOn = true;
+    }
+
+    private IEnumerator FlickeringLights()
+    {
+        yield return new WaitForEndOfFrame();
+        while (CurrentState == GameState.Flickering)
+        {
+            LightsOn = true;
+            var offTime = Random.Range(FlickeringConfig.MinLightsOnTime, FlickeringConfig.MaxLightsOnTime);
+            yield return new WaitForSeconds(offTime);
+            if (CurrentState != GameState.Flickering) break;
+            LightsOn = false;
+            yield return new WaitForSeconds(FlickeringConfig.LightsOutTime);
+        }
     }
 }
