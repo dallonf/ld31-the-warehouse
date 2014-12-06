@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameController.Instance.IsGameplay) return;
+
         var moveVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         if (moveVector.sqrMagnitude > 1)
         {
