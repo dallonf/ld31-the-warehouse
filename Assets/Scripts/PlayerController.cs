@@ -24,20 +24,25 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameController.Instance.IsGameplay) return;
-
-        var moveVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        if (moveVector.sqrMagnitude > 1)
+        if (GameController.Instance.IsGameplay)
         {
-            moveVector.Normalize();
+            var moveVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            if (moveVector.sqrMagnitude > 1)
+            {
+                moveVector.Normalize();
+            }
+
+            rigidbody2d.velocity = moveVector * Speed;
+
+            if (moveVector.sqrMagnitude > 0)
+            {
+                transform.rotation = Quaternion.AngleAxis(Mathf.Rad2Deg * Mathf.Atan2(moveVector.y, moveVector.x) - 90, Vector3.forward);
+            }
         }
-
-        rigidbody2d.velocity = moveVector * Speed;
-
-        if (moveVector.sqrMagnitude > 0)
+        else
         {
-            transform.rotation = Quaternion.AngleAxis(Mathf.Rad2Deg*Mathf.Atan2(moveVector.y, moveVector.x) - 90, Vector3.forward);
-        }
+            rigidbody2d.velocity = Vector2.zero;
+        }        
     }
 
     void FixedUpdate()

@@ -40,6 +40,12 @@ public class GameController : MonoBehaviour
     public void Awake()
     {
         Instance = this;
+        UninitializeState(GameState.TitleScreen);
+        UninitializeState(GameState.Tutorial);
+        UninitializeState(GameState.Flickering);
+        UninitializeState(GameState.Switches);
+        UninitializeState(GameState.Dead);
+        UninitializeState(GameState.Victory);
         GoToState(CurrentState); // Might have to move this to Start
     }
     
@@ -48,10 +54,9 @@ public class GameController : MonoBehaviour
         CurrentBox = BoxSequence[0];
     }
 
-    public void GoToState(GameState newState)
+    private void UninitializeState(GameState lastState)
     {
-        // Uninitialize current state
-        switch (CurrentState)
+        switch (lastState)
         {
             case GameState.TitleScreen:
                 TitleScreen.SetActive(false);
@@ -66,8 +71,14 @@ public class GameController : MonoBehaviour
             case GameState.Dead:
                 break;
             case GameState.Victory:
+                VictoryScreen.SetActive(false);
                 break;
         }
+    }
+
+    public void GoToState(GameState newState)
+    {
+        UninitializeState(CurrentState);
 
         switch (newState)
         {
@@ -84,6 +95,7 @@ public class GameController : MonoBehaviour
             case GameState.Dead:
                 break;
             case GameState.Victory:
+                VictoryScreen.SetActive(true);
                 break;
         }
         CurrentState = newState;
@@ -98,7 +110,7 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            CurrentState = GameState.Victory;
+            GoToState(GameState.Victory);
             CurrentBox = null;
         }
     }
@@ -106,5 +118,10 @@ public class GameController : MonoBehaviour
     public void TitleScreenDone()
     {
         GoToState(GameState.Tutorial);
+    }
+
+    public void Restart()
+    {
+        Application.LoadLevel(Application.loadedLevel);
     }
 }
