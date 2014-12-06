@@ -12,6 +12,7 @@ public class BoxController : MonoBehaviour
         {
             player.IsCarryingBox = true;
             gameObject.SetActive(false);
+            GameController.Instance.OnBoxPickedUp();
         }
     }
 }

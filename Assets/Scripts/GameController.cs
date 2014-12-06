@@ -16,16 +16,19 @@ public class GameController : MonoBehaviour
 {
     [Header("Configuration")]
     public BoxController[] BoxSequence;
+    public GameObject[] Ninjas;
 
     [Header("References")]
     public PlayerController Player;
     public GameObject TitleScreen;
     public GameObject VictoryScreen;
+    public Light Light;
     
     [Header("Dynamic")]
     public GameState CurrentState;
     public BoxController CurrentBox;
     public int BoxesDelivered;
+    public bool LightsOn = true;
 
     public bool IsGameplay 
     { 
@@ -46,12 +49,21 @@ public class GameController : MonoBehaviour
         UninitializeState(GameState.Switches);
         UninitializeState(GameState.Dead);
         UninitializeState(GameState.Victory);
+        foreach (var ninja in Ninjas)
+        {
+            ninja.SetActive(false);
+        }
         GoToState(CurrentState); // Might have to move this to Start
     }
     
     void Start()
     {
         CurrentBox = BoxSequence[0];
+    }
+
+    public void FixedUpdate()
+    {
+        Light.enabled = LightsOn;
     }
 
     private void UninitializeState(GameState lastState)
@@ -115,6 +127,14 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void OnBoxPickedUp()
+    {
+        if (CurrentState == GameState.Tutorial && BoxesDelivered == 0)
+        {
+            StartCoroutine(ShowFirstNinja());
+        }
+    }
+
     public void TitleScreenDone()
     {
         GoToState(GameState.Tutorial);
@@ -123,5 +143,13 @@ public class GameController : MonoBehaviour
     public void Restart()
     {
         Application.LoadLevel(Application.loadedLevel);
+    }
+
+    public IEnumerator ShowFirstNinja()
+    {
+        LightsOn = false;
+        Ninjas[0].SetActive(true);
+        yield return new WaitForSeconds(0.25f);
+        LightsOn = true;
     }
 }
