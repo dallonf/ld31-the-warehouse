@@ -9,6 +9,7 @@ public class DeliveryZone : MonoBehaviour
         if (player && player.IsCarryingBox)
         {
             player.IsCarryingBox = false;
+            GameController.Instance.OnBoxDelivered();
         }
     }
 }
