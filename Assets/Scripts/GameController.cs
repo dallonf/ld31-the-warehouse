@@ -225,15 +225,18 @@ public class GameController : MonoBehaviour
         LightsOn = true;
     }
 
+    static int lightCoroutines = 0;
     private IEnumerator FlickeringLights()
     {
+        lightCoroutines++;
+        int thisCoroutineId = lightCoroutines;
         yield return new WaitForEndOfFrame();
-        while (CurrentState == GameState.Flickering)
+        while (CurrentState == GameState.Flickering || lightCoroutines > thisCoroutineId)
         {
             LightsOn = true;
-            var offTime = Random.Range(FlickeringConfig.MinLightsOnTime, FlickeringConfig.MaxLightsOnTime);
-            yield return new WaitForSeconds(offTime);
-            if (CurrentState != GameState.Flickering) break;
+            var onTime = Random.Range(FlickeringConfig.MinLightsOnTime, FlickeringConfig.MaxLightsOnTime);
+            yield return new WaitForSeconds(onTime);
+            if (CurrentState != GameState.Flickering || lightCoroutines > thisCoroutineId) break;
             LightsOn = false;
             yield return new WaitForSeconds(FlickeringConfig.LightsOutTime);
         }
