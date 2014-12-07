@@ -70,10 +70,10 @@ public class GameController : MonoBehaviour
         UninitializeState(GameState.Switches);
         UninitializeState(GameState.Dead);
         UninitializeState(GameState.Victory);
-        foreach (var ninja in Ninjas)
-        {
-            ninja.SetActive(false);
-        }
+        //foreach (var ninja in Ninjas)
+        //{
+        //    ninja.SetActive(false);
+        //}
         soundController = GetComponentInChildren<SoundController>();
         GoToState(CurrentState); // Might have to move this to Start
     }
