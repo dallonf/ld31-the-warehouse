@@ -3757,7 +3757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: 79c18ec84518fcb46a7362a8c4653de9, type: 3}
     m_FontSize: 1
@@ -3788,7 +3788,7 @@ MonoBehaviour:
   m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: .0500000007, y: .0500000007}
   m_UseGraphicAlpha: 1
 --- !u!1 &741815732
@@ -4184,7 +4184,7 @@ Transform:
   m_PrefabInternal: {fileID: 1530920131}
   m_GameObject: {fileID: 773055596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.92999983, y: -2, z: 0}
+  m_LocalPosition: {x: 6.21999979, y: -1.85000002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4790,7 +4790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: 83b936a772ee1de4ebe8c0f2a412af31, type: 3}
     m_FontSize: 1
@@ -4821,7 +4821,7 @@ MonoBehaviour:
   m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: .0500000007, y: .0500000007}
   m_UseGraphicAlpha: 1
 --- !u!1 &880759550
@@ -4849,7 +4849,7 @@ Transform:
   m_PrefabInternal: {fileID: 1960617673}
   m_GameObject: {fileID: 880759550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.4200001, y: .100000001, z: 0}
+  m_LocalPosition: {x: 17.5, y: .100000001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 992877218}
@@ -5341,7 +5341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: 83b936a772ee1de4ebe8c0f2a412af31, type: 3}
     m_FontSize: 0
@@ -5372,8 +5372,8 @@ MonoBehaviour:
   m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
-  m_EffectDistance: {x: .0500000007, y: .0500000007}
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: .0199999996, y: .0199999996}
   m_UseGraphicAlpha: 1
 --- !u!1001 &977408362
 Prefab:
@@ -6976,7 +6976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: 83b936a772ee1de4ebe8c0f2a412af31, type: 3}
     m_FontSize: 1
@@ -7024,7 +7024,7 @@ MonoBehaviour:
   m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: .0500000007, y: .0500000007}
   m_UseGraphicAlpha: 1
 --- !u!1 &1245121652
@@ -7622,7 +7622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: 83b936a772ee1de4ebe8c0f2a412af31, type: 3}
     m_FontSize: 2
@@ -7653,7 +7653,7 @@ MonoBehaviour:
   m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: .0500000007, y: .0500000007}
   m_UseGraphicAlpha: 1
 --- !u!1 &1342674560
@@ -8267,11 +8267,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 076ca3ffff8c5504f99d1e73ba6e7416, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.92999983
+      value: 6.21999979
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 076ca3ffff8c5504f99d1e73ba6e7416, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: -1.85000002
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 076ca3ffff8c5504f99d1e73ba6e7416, type: 2}
       propertyPath: m_LocalPosition.z
@@ -9905,7 +9905,7 @@ Transform:
   m_PrefabInternal: {fileID: 2100857326}
   m_GameObject: {fileID: 1727624260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.21000004, y: 10.5, z: 0}
+  m_LocalPosition: {x: 8.22999954, y: 2.45000005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10295,7 +10295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: 79c18ec84518fcb46a7362a8c4653de9, type: 3}
     m_FontSize: 2
@@ -10354,7 +10354,7 @@ MonoBehaviour:
   m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: .0500000007, y: .0500000007}
   m_UseGraphicAlpha: 1
 --- !u!1 &1774887165
@@ -11234,7 +11234,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: b450aeed22076a3458bdb4d11cc3409d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 17.4200001
+      value: 17.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b450aeed22076a3458bdb4d11cc3409d, type: 2}
       propertyPath: m_LocalPosition.y
@@ -12117,11 +12117,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 076ca3ffff8c5504f99d1e73ba6e7416, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 9.21000004
+      value: 8.22999954
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 076ca3ffff8c5504f99d1e73ba6e7416, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 10.5
+      value: 2.45000005
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 076ca3ffff8c5504f99d1e73ba6e7416, type: 2}
       propertyPath: m_LocalPosition.z
