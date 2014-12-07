@@ -130,6 +130,7 @@ public class GameController : MonoBehaviour
         switch (newState)
         {
             case GameState.TitleScreen:
+                StartCoroutine(TitleScreenFlickeringLights());
                 TitleScreen.SetActive(true);
                 Player.gameObject.SetActive(false);
                 break;
@@ -272,6 +273,23 @@ public class GameController : MonoBehaviour
             if (CurrentState != GameState.Flickering || lightCoroutines > thisCoroutineId) break;
             LightsOn = false;
             yield return new WaitForSeconds(FlickeringConfig.LightsOutTime);
+        }
+    }
+
+    private IEnumerator TitleScreenFlickeringLights()
+    {
+        while(CurrentState == GameState.TitleScreen)
+        {
+            var onTime = Random.Range(FlickeringConfig.MinLightsOnTime, FlickeringConfig.MaxLightsOnTime);
+            yield return new WaitForSeconds(onTime);
+            if (CurrentState != GameState.TitleScreen) break;
+            yield return StartCoroutine(FlickerLights());
+            if (Random.value > 0.5f)
+            {
+                yield return new WaitForSeconds(0.1f);
+                if (CurrentState != GameState.TitleScreen) break;
+                yield return StartCoroutine(FlickerLights());
+            }
         }
     }
 
