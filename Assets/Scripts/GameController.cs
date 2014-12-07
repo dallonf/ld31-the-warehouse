@@ -40,6 +40,8 @@ public class GameController : MonoBehaviour
     public int BoxesDelivered;
     public bool LightsOn = true;
 
+    private SoundController soundController;
+
     public bool IsGameplay 
     { 
         get 
@@ -72,6 +74,7 @@ public class GameController : MonoBehaviour
         {
             ninja.SetActive(false);
         }
+        soundController = GetComponentInChildren<SoundController>();
         GoToState(CurrentState); // Might have to move this to Start
     }
     
@@ -127,6 +130,7 @@ public class GameController : MonoBehaviour
             case GameState.Switches:
                 break;
             case GameState.Dead:
+                soundController.OnGameOver();
                 DeathScreen.SetActive(true);
                 break;
             case GameState.Victory:

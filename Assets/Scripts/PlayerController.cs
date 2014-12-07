@@ -42,7 +42,10 @@ public class PlayerController : MonoBehaviour
         else
         {
             rigidbody2d.velocity = Vector2.zero;
-        }        
+        }
+
+        // Footsteps
+        audio.mute = (rigidbody2d.velocity.magnitude <= 0.1f);
     }
 
     void FixedUpdate()
