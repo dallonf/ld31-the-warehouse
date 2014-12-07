@@ -16,6 +16,8 @@ public class NinjaController : MonoBehaviour
     private Path currentPath;
     private bool requestingRandomPath;
 
+    private Vector3 startPosition;
+
     public void Awake()
     {
         seeker = GetComponent<Seeker>();
@@ -23,6 +25,7 @@ public class NinjaController : MonoBehaviour
 
     public void Start()
     {
+        startPosition = transform.position;
         StartCoroutine(Think());
     }
 
@@ -80,7 +83,7 @@ public class NinjaController : MonoBehaviour
                 var ninjasInRange = new List<Transform>();
                 foreach (var otherNinja in GameController.Instance.Ninjas)
                 {
-                    if (otherNinja.gameObject != this.gameObject && Vector3.SqrMagnitude(otherNinja.transform.position - transform.position) < ClusterDistance * ClusterDistance)
+                    if (otherNinja.activeInHierarchy && otherNinja.gameObject != this.gameObject && Vector3.SqrMagnitude(otherNinja.transform.position - transform.position) < ClusterDistance * ClusterDistance)
                     {
                         ninjasInRange.Add(otherNinja.transform);
                     }
@@ -138,5 +141,11 @@ public class NinjaController : MonoBehaviour
         }
     }
 
+    public void Respawn()
+    {
+        transform.position = startPosition;
+        currentPath = null;
+        seeker.StopAllCoroutines(); // I *think* this will cancel any pathing in progress?
+    }
 
 }

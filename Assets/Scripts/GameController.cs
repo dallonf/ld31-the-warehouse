@@ -43,6 +43,8 @@ public class GameController : MonoBehaviour
 
     private SoundController soundController;
 
+    private GameState lastStateBeforeGameOver;
+
     public bool IsGameplay 
     { 
         get 
@@ -71,10 +73,10 @@ public class GameController : MonoBehaviour
         UninitializeState(GameState.Switches);
         UninitializeState(GameState.Dead);
         UninitializeState(GameState.Victory);
-        foreach (var ninja in Ninjas)
-        {
-            ninja.SetActive(false);
-        }
+        //foreach (var ninja in Ninjas)
+        //{
+        //    ninja.SetActive(false);
+        //}
         soundController = GetComponentInChildren<SoundController>();
         GoToState(CurrentState); // Might have to move this to Start
     }
@@ -139,6 +141,7 @@ public class GameController : MonoBehaviour
             case GameState.Switches:
                 break;
             case GameState.Dead:
+                lastStateBeforeGameOver = CurrentState;
                 soundController.OnGameOver();
                 DeathScreen.SetActive(true);
                 break;
@@ -181,7 +184,7 @@ public class GameController : MonoBehaviour
     public void OnBoxPickedUp()
     {
         soundController.OnBoxPickup();
-        if (CurrentState == GameState.Tutorial && BoxesDelivered == 0)
+        if (CurrentState == GameState.Tutorial && BoxesDelivered == 0 && NinjasActive < 1)
         {
             StartCoroutine(ShowFirstNinja());
         }
@@ -195,6 +198,20 @@ public class GameController : MonoBehaviour
     public void Restart()
     {
         Application.LoadLevel(Application.loadedLevel);
+    }
+
+    public void Respawn()
+    {
+        Player.Respawn();
+        CurrentBox.gameObject.SetActive(true); // Respawn the box in case it got picked up
+        foreach (var ninja in Ninjas)
+        {
+            if (ninja.activeInHierarchy)
+            {
+                ninja.SendMessage("Respawn");
+            }
+        }
+        GoToState(lastStateBeforeGameOver);
     }
 
     private IEnumerator ShowFirstNinja()

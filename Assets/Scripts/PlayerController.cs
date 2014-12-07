@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rigidbody2d;
 
     private Vector3 lastPosition;
+    private Vector3 startPosition;
 
     void Awake()
     {
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        startPosition = transform.position;
         lastPosition = transform.position;
     }
 
@@ -57,5 +59,15 @@ public class PlayerController : MonoBehaviour
         var actualVelocity = (currentPosition - lastPosition).magnitude / Time.deltaTime;
         audio.mute = (actualVelocity <= 0.3f);
         lastPosition = currentPosition;
+    }
+
+    public void Respawn()
+    {
+        transform.position = startPosition;
+        lastPosition = startPosition;
+        IsCarryingBox = false;
+        transform.rotation = Quaternion.identity;
+        rigidbody2d.velocity = Vector3.zero;
+        audio.mute = true;
     }
 }
