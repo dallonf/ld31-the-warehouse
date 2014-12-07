@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee0de185944212489c61ec05f974fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTargetBox: 1
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -144,7 +143,7 @@ SpriteRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: f520f7937cb264c40a8cff5b11906794, type: 2}
+  - {fileID: 2100000, guid: fa48605003967a844aa2243bab3393af, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
