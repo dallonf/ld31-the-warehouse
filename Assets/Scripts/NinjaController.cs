@@ -37,6 +37,14 @@ public class NinjaController : MonoBehaviour
 
                     var moveVector = waypoint - transform.position;
                     var moveAmount = moveVector.magnitude;
+
+                    if (moveAmount <= 0.5f)
+                    {
+                        // Close enough, just skip ahead to the next waypoint
+                        currentWaypoint++;
+                        continue;
+                    }
+
                     if (moveAmount <= distanceLeft)
                     {
                         distanceLeft -= moveAmount;

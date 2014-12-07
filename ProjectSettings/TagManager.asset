@@ -49,6 +49,10 @@ TagManager:
     userID: 2
     uniqueID: 2635548995
     locked: 0
+  - name: Ninjas
+    userID: 4
+    uniqueID: 3405580221
+    locked: 0
   - name: UI
     userID: 3
     uniqueID: 2266082065
