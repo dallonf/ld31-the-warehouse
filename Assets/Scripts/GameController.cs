@@ -39,6 +39,7 @@ public class GameController : MonoBehaviour
     public BoxController CurrentBox;
     public int BoxesDelivered;
     public bool LightsOn = true;
+    public int NinjasActive = 0;
 
     private SoundController soundController;
 
@@ -86,6 +87,14 @@ public class GameController : MonoBehaviour
     public void FixedUpdate()
     {
         Light.enabled = LightsOn;
+
+        if (!LightsOn)
+        {
+            for (int i = 0; i < NinjasActive; i++)
+            {
+                Ninjas[i].SetActive(true);
+            }
+        }
     }
 
     private void UninitializeState(GameState lastState)
@@ -159,6 +168,14 @@ public class GameController : MonoBehaviour
         {
             GoToState(GameState.Flickering);
         }
+        else if (BoxesDelivered >= 3 && NinjasActive < 2)
+        {
+            NinjasActive = 2;
+        }
+        else if (BoxesDelivered >= 6 && NinjasActive < 3)
+        {
+            NinjasActive = 3;
+        }
     }
 
     public void OnBoxPickedUp()
@@ -186,7 +203,7 @@ public class GameController : MonoBehaviour
         LightsOn = false;
         yield return new WaitForFixedUpdate();
         yield return new WaitForFixedUpdate();
-        Ninjas[0].SetActive(true);
+        NinjasActive += 1;
         yield return new WaitForSeconds(0.1f);
         LightsOn = true;
     }
