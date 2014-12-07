@@ -4184,7 +4184,7 @@ Transform:
   m_PrefabInternal: {fileID: 1530920131}
   m_GameObject: {fileID: 773055596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.13000011, y: 2.48000002, z: 0}
+  m_LocalPosition: {x: 5.92999983, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5160,9 +5160,9 @@ MonoBehaviour:
   VictoryScreen: {fileID: 1430632527}
   DeathScreen: {fileID: 919826949}
   Light: {fileID: 531917785}
-  CurrentState: 2
+  CurrentState: 0
   CurrentBox: {fileID: 0}
-  BoxesDelivered: 8
+  BoxesDelivered: 1
   LightsOn: 1
   NinjasActive: 0
 --- !u!4 &922741837
@@ -8267,11 +8267,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 076ca3ffff8c5504f99d1e73ba6e7416, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 8.13000011
+      value: 5.92999983
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 076ca3ffff8c5504f99d1e73ba6e7416, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.48000002
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 076ca3ffff8c5504f99d1e73ba6e7416, type: 2}
       propertyPath: m_LocalPosition.z
@@ -9905,7 +9905,7 @@ Transform:
   m_PrefabInternal: {fileID: 2100857326}
   m_GameObject: {fileID: 1727624260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.92000008, y: -2, z: 0}
+  m_LocalPosition: {x: 9.21000004, y: 10.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -12117,11 +12117,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 076ca3ffff8c5504f99d1e73ba6e7416, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.92000008
+      value: 9.21000004
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 076ca3ffff8c5504f99d1e73ba6e7416, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: 10.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 076ca3ffff8c5504f99d1e73ba6e7416, type: 2}
       propertyPath: m_LocalPosition.z
