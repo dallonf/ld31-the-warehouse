@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rigidbody2d;
 
+    private Vector3 lastPosition;
+
     void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -18,7 +20,7 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        lastPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -43,14 +45,17 @@ public class PlayerController : MonoBehaviour
         {
             rigidbody2d.velocity = Vector2.zero;
         }
-
-        // Footsteps
-        audio.mute = (rigidbody2d.velocity.magnitude <= 0.1f);
     }
 
     void FixedUpdate()
     {
         BoxArmsRenderer.enabled = IsCarryingBox;
         IdleArmsRenderer.enabled = !IsCarryingBox;
+
+        // Footsteps
+        var currentPosition = transform.position;
+        var actualVelocity = (currentPosition - lastPosition).magnitude / Time.deltaTime;
+        audio.mute = (actualVelocity <= 0.3f);
+        lastPosition = currentPosition;
     }
 }
