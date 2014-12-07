@@ -5162,7 +5162,7 @@ MonoBehaviour:
   Light: {fileID: 531917785}
   CurrentState: 0
   CurrentBox: {fileID: 0}
-  BoxesDelivered: 1
+  BoxesDelivered: 0
   LightsOn: 1
   NinjasActive: 0
 --- !u!4 &922741837
