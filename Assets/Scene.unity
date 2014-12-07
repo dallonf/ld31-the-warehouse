@@ -888,6 +888,8 @@ MonoBehaviour:
   LightsOut: {fileID: 8300000, guid: 02797297d8b5c3644956e266943fd5c5, type: 3}
   LightsOn: {fileID: 0}
   GameOver: {fileID: 8300000, guid: 2d0225490613c734183024db9911e1b1, type: 3}
+  Score: {fileID: 8300000, guid: 2358c3f0974f6774ca4a65e548a58eeb, type: 3}
+  Pickup: {fileID: 8300000, guid: 566cf740e066c59409e1c527dded7712, type: 3}
 --- !u!1 &158236466
 GameObject:
   m_ObjectHideFlags: 0
@@ -2363,7 +2365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &414739238
 Transform:
   m_ObjectHideFlags: 0
@@ -5110,7 +5112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &960832647
 AudioSource:
   m_ObjectHideFlags: 0

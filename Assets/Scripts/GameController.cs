@@ -142,6 +142,7 @@ public class GameController : MonoBehaviour
 
     public void OnBoxDelivered()
     {
+        soundController.OnScore();
         BoxesDelivered += 1;
         if (BoxSequence.Length > BoxesDelivered)
         {
@@ -162,6 +163,7 @@ public class GameController : MonoBehaviour
 
     public void OnBoxPickedUp()
     {
+        soundController.OnBoxPickup();
         if (CurrentState == GameState.Tutorial && BoxesDelivered == 0)
         {
             StartCoroutine(ShowFirstNinja());
@@ -180,7 +182,7 @@ public class GameController : MonoBehaviour
 
     private IEnumerator ShowFirstNinja()
     {
-        yield return new WaitForSeconds(1.5f); // Let the process process that they just picked something up
+        yield return new WaitForSeconds(1.5f); // Let the player process that they just picked something up
         LightsOn = false;
         yield return new WaitForFixedUpdate();
         yield return new WaitForFixedUpdate();

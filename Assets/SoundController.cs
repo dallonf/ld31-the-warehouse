@@ -9,6 +9,8 @@ public class SoundController : MonoBehaviour
     public AudioClip LightsOut;
     public AudioClip LightsOn;
     public AudioClip GameOver;
+    public AudioClip Score;
+    public AudioClip Pickup;
 
     private bool lightsOnLastFrame;
 
@@ -23,7 +25,7 @@ public class SoundController : MonoBehaviour
         bool lightsOn = GameController.Instance.LightsOn;
         if (lightsOn)
         {
-            LightsHumming.enabled = true;
+            //LightsHumming.enabled = true;
             if (!lightsOnLastFrame)
             {
                 // Lights On
@@ -31,7 +33,7 @@ public class SoundController : MonoBehaviour
         }
         else
         {
-            LightsHumming.enabled = false;
+            //LightsHumming.enabled = false;
             if (lightsOnLastFrame)
             {
                 Effect.PlayOneShot(LightsOut);
@@ -44,5 +46,15 @@ public class SoundController : MonoBehaviour
     public void OnGameOver()
     {
         Effect.PlayOneShot(GameOver);
+    }
+
+    public void OnScore()
+    {
+        Effect.PlayOneShot(Score);
+    }
+
+    public void OnBoxPickup()
+    {
+        Effect.PlayOneShot(Pickup);
     }
 }
