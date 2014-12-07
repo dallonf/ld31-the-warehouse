@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public Renderer IdleArmsRenderer;
 
     private Rigidbody2D rigidbody2d;
+    private Animator animator;
 
     private Vector3 lastPosition;
     private Vector3 startPosition;
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Use this for initialization
@@ -51,13 +53,14 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        BoxArmsRenderer.enabled = IsCarryingBox;
-        IdleArmsRenderer.enabled = !IsCarryingBox;
+        animator.SetBool("HaveBox", IsCarryingBox);
 
-        // Footsteps
+        
         var currentPosition = transform.position;
         var actualVelocity = (currentPosition - lastPosition).magnitude / Time.deltaTime;
-        audio.mute = (actualVelocity <= 0.3f);
+        bool walking = (actualVelocity > 0.3f);
+        audio.mute = !walking; // Footsteps
+        animator.SetBool("Walking", walking);
         lastPosition = currentPosition;
     }
 
