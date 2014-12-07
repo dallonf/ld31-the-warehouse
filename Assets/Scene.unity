@@ -837,6 +837,7 @@ MonoBehaviour:
   Effect: {fileID: 633396494}
   LightsOut: {fileID: 8300000, guid: 02797297d8b5c3644956e266943fd5c5, type: 3}
   LightsOn: {fileID: 0}
+  LightsFlicker: {fileID: 8300000, guid: 9210b96f9588b82468794c9a4a7f0cf8, type: 3}
   GameOver: {fileID: 8300000, guid: 2d0225490613c734183024db9911e1b1, type: 3}
   Score: {fileID: 8300000, guid: 2358c3f0974f6774ca4a65e548a58eeb, type: 3}
   Pickup: {fileID: 8300000, guid: 566cf740e066c59409e1c527dded7712, type: 3}
@@ -3523,7 +3524,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 715068581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.1099997, y: -8.64000034, z: 0}
+  m_LocalPosition: {x: -11.1099997, y: -8.56999969, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1443036757}

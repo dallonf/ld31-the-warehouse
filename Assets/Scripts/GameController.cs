@@ -214,9 +214,23 @@ public class GameController : MonoBehaviour
         GoToState(lastStateBeforeGameOver);
     }
 
+    private IEnumerator FlickerLights()
+    {
+        soundController.OnLightsFlicker();
+        Light.intensity /= 2;
+        yield return new WaitForSeconds(0.1f);
+        Light.intensity *= 2;
+    }
+
     private IEnumerator ShowFirstNinja()
     {
         yield return new WaitForSeconds(1.5f); // Let the player process that they just picked something up
+
+        yield return StartCoroutine(FlickerLights());
+        yield return new WaitForSeconds(0.1f);
+        yield return StartCoroutine(FlickerLights());
+        yield return new WaitForSeconds(0.5f);
+
         LightsOn = false;
         yield return new WaitForFixedUpdate();
         yield return new WaitForFixedUpdate();
@@ -235,6 +249,25 @@ public class GameController : MonoBehaviour
         {
             LightsOn = true;
             var onTime = Random.Range(FlickeringConfig.MinLightsOnTime, FlickeringConfig.MaxLightsOnTime);
+
+            // Sometimes, flicker the lights
+            if (Random.value > 0.5f)
+            { 
+                var flickerTime = 0f;
+                flickerTime = Random.Range(0, onTime);
+                onTime -= flickerTime;
+                yield return new WaitForSeconds(flickerTime);
+                if (CurrentState != GameState.Flickering || lightCoroutines > thisCoroutineId) break;
+                yield return StartCoroutine(FlickerLights());
+                // Sometimes flicker them twice
+                if (Random.value > 0.5f)
+                {
+                    yield return new WaitForSeconds(0.1f);
+                    if (CurrentState != GameState.Flickering || lightCoroutines > thisCoroutineId) break;
+                    yield return StartCoroutine(FlickerLights());
+                }
+            }
+
             yield return new WaitForSeconds(onTime);
             if (CurrentState != GameState.Flickering || lightCoroutines > thisCoroutineId) break;
             LightsOn = false;

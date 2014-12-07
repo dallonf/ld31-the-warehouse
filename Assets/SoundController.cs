@@ -8,6 +8,7 @@ public class SoundController : MonoBehaviour
 
     public AudioClip LightsOut;
     public AudioClip LightsOn;
+    public AudioClip LightsFlicker;
     public AudioClip GameOver;
     public AudioClip Score;
     public AudioClip Pickup;
@@ -51,6 +52,11 @@ public class SoundController : MonoBehaviour
     public void OnScore()
     {
         Effect.PlayOneShot(Score);
+    }
+
+    public void OnLightsFlicker()
+    {
+        Effect.PlayOneShot(LightsFlicker);
     }
 
     public void OnBoxPickup()
