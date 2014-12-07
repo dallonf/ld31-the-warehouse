@@ -4,13 +4,13 @@ using System.Collections;
 public class BoxArrowController : MonoBehaviour
 {
     private BoxController box;
-    private Animation animation;
+    private Animation animationPlayer;
     private SpriteRenderer sprite;
 
     void Awake()
     {
         box = GetComponentInParent<BoxController>();
-        animation = GetComponent<Animation>();
+        animationPlayer = GetComponent<Animation>();
         sprite = GetComponent<SpriteRenderer>();
     }
 
@@ -18,12 +18,12 @@ public class BoxArrowController : MonoBehaviour
     {
         if (GameController.Instance.IsGameplay && GameController.Instance.CurrentBox == box)
         {
-            animation.enabled = true;
+            animationPlayer.enabled = true;
             sprite.enabled = true;
         }
         else
         {
-            animation.enabled = false;
+            animationPlayer.enabled = false;
             sprite.enabled = false;
         }
     }
